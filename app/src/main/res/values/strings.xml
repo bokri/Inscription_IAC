@@ -12,6 +12,7 @@
     <string name="err_msg_email">Entrer une adresse email valide</string>
     <string name="err_msg_workshop">Entrer au moins un atelier</string>
     <string name="err_msg_study">Entrer votre niveau universitaire</string>
+    <string name="please_wait">Veuillez Patienter</string>
     <!-- Workshops -->
     <string name="mobile_dev">Mobile Development</string>
     <string name="ar_games">AR Games</string>

@@ -1,13 +1,15 @@
 package tn.iac.inscriptioniac;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -24,10 +26,19 @@ public class PostDataTask extends AsyncTask<String, Void, Boolean> {
     private Context context;
     private CoordinatorLayout coordinatorLayout;
     private String[] contactData;
+    private ProgressDialog dialog;
 
     public PostDataTask(Context context, CoordinatorLayout coordinatorLayout){
         this.context = context;
         this.coordinatorLayout = coordinatorLayout;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        dialog = ProgressDialog.show(context, "",
+                context.getResources().getString(R.string.please_wait), true);
+        dialog.show();
     }
 
     @Override
@@ -39,8 +50,8 @@ public class PostDataTask extends AsyncTask<String, Void, Boolean> {
         String number = contactData[2];
         String email = contactData[3];
         String study = contactData[4];
-        String workshops = contactData[4];
-        String teams = contactData[4];
+        String workshops = contactData[5];
+        String teams = contactData[6];
         String postBody="";
 
         try {
@@ -81,11 +92,13 @@ public class PostDataTask extends AsyncTask<String, Void, Boolean> {
             result=false;
         }
         return result;
+
     }
 
     @Override
     protected void onPostExecute(Boolean result){
         //Print Success or failure message accordingly
+        dialog.dismiss();
         if(!result) {
             Snackbar snackbar = Snackbar
                     .make(coordinatorLayout, context.getResources().getString(R.string.no_internet), Snackbar.LENGTH_LONG)
@@ -109,11 +122,10 @@ public class PostDataTask extends AsyncTask<String, Void, Boolean> {
 
             snackbar.show();
         }else{
-
-            Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, context.getResources().getString(R.string.response), Snackbar.LENGTH_LONG);
-
-            snackbar.show();
+            Intent intent = new Intent(context, MainActivity.class);
+            intent.putExtra(Common.EXTRA, true);
+            context.startActivity(intent);
+            ((Activity)context).finish();
         }
     }
 

@@ -1,6 +1,7 @@
 package tn.iac.inscriptioniac;
 
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         cbCommunication = (CheckBox) findViewById(R.id.cb_communication);
         cbRedaction = (CheckBox) findViewById(R.id.cb_redaction);
 
+
         btnSignUp = (Button) findViewById(R.id.btn_inscription);
 
         inputName.addTextChangedListener(new MyTextWatcher(inputName));
@@ -77,6 +80,17 @@ public class MainActivity extends AppCompatActivity {
                 submitForm();
             }
         });
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            if(extras.getBoolean(Common.EXTRA)){
+                Snackbar snackbar = Snackbar
+                        .make(coordinatorLayout, this.getResources().getString(R.string.response), Snackbar.LENGTH_LONG);
+
+                snackbar.show();
+            }
+        }
 
     }
 
@@ -151,8 +165,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validateWorkshops() {
-        if (!cbMobileDev.isChecked()&&!cbArGames.isChecked()&&!cbRobotics.isChecked()&&
-        !cbSoftSkills.isChecked()&&!cbSsTechs.isChecked()&&!cbSeBP.isChecked()){
+        if (!cbMobileDev.isChecked() && !cbArGames.isChecked() && !cbRobotics.isChecked() &&
+                !cbSoftSkills.isChecked() && !cbSsTechs.isChecked() && !cbSeBP.isChecked()) {
             tvWorkshops.setError(getString(R.string.err_msg_workshop));
             return false;
         } else {
@@ -161,60 +175,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String buildWorkshopsString() {
-        String workshops="";
-        if (cbMobileDev.isChecked())
-            workshops = cbMobileDev.getText().toString();
-        if(cbArGames.isChecked()) {
-            if (!workshops.isEmpty())
-                workshops.concat(", " + cbArGames.getText().toString());
-            else
-                workshops.concat(cbArGames.getText().toString());
+        String workshops = "";
+        if (cbMobileDev.isChecked()) {
+            workshops += cbMobileDev.getText().toString() + ", ";
         }
-        if(cbRobotics.isChecked()) {
-            if (!workshops.isEmpty())
-                workshops.concat(", " + cbRobotics.getText().toString());
-            else
-                workshops.concat(cbRobotics.getText().toString());
+        if (cbArGames.isChecked()) {
+
+            workshops += cbArGames.getText().toString() + ", ";
         }
-        if(cbSoftSkills.isChecked()){
-            if (!workshops.isEmpty())
-                workshops.concat(", " + cbSoftSkills.getText().toString());
-            else
-                workshops.concat(cbSoftSkills.getText().toString());
+        if (cbRobotics.isChecked()) {
+            workshops += cbRobotics.getText().toString() + ", ";
         }
-        if(cbSsTechs.isChecked()){
-            if (!workshops.isEmpty())
-                workshops.concat(", " + cbSsTechs.getText().toString());
-            else
-                workshops.concat(cbSsTechs.getText().toString());
+        if (cbSoftSkills.isChecked()) {
+            workshops += cbSoftSkills.getText().toString() + ", ";
         }
-        if(cbSeBP.isChecked()){
-            if (!workshops.isEmpty())
-                workshops.concat(", " + cbSeBP.getText().toString());
-            else
-                workshops.concat(cbSeBP.getText().toString());
+        if (cbSsTechs.isChecked()) {
+            workshops += cbSsTechs.getText().toString() + ", ";
+        }
+        if (cbSeBP.isChecked()) {
+            workshops += cbSeBP.getText().toString();
         }
         Log.d("Workshops", workshops);
         return workshops;
     }
 
     private String buildTeamsString() {
-        String teams="";
-        if (cbSponsoring.isChecked())
-            teams=cbSponsoring.getText().toString();
-        if(cbRedaction.isChecked())
-        {
-            if (!teams.isEmpty())
-                teams.concat(", " + cbRedaction.getText().toString());
-            else
-                teams.concat(cbRedaction.getText().toString());
+        String teams = "";
+        if (cbSponsoring.isChecked()) {
+
+            teams += cbSponsoring.getText().toString() + ", ";
         }
-        if(cbCommunication.isChecked())
-        {
-            if (!teams.isEmpty())
-                teams.concat(", " + cbCommunication.getText().toString());
-            else
-                teams.concat(cbCommunication.getText().toString());
+        if (cbRedaction.isChecked()) {
+
+            teams += cbRedaction.getText().toString() + ", ";
+        }
+        if (cbCommunication.isChecked()) {
+
+            teams += cbCommunication.getText().toString();
         }
         Log.d("Teams", teams);
         return teams;
