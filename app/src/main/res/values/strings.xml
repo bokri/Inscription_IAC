@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Inscription IAC</string>
+    <!-- Labels -->
+    <string name="hint_name">  Nom et Prénom</string>
+    <string name="hint_num">Numéro de téléphone</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_study">Niveau universitaire</string>
+    <string name="workshops_title">Atelier(s)</string>
+    <string name="team">Rejoindre une équipe?</string>
+    <string name="btn_inscription">Inscription</string>
+    <string name="err_msg_name">Entrer votre nom</string>
+    <string name="err_msg_email">Entrer une adresse email valide</string>
+    <string name="err_msg_workshop">Entrer au moins un atelier</string>
+    <string name="err_msg_study">Entrer votre niveau universitaire</string>
+    <!-- Workshops -->
+    <string name="mobile_dev">Mobile Development</string>
+    <string name="ar_games">AR Games</string>
+    <string name="robotics">Robotics</string>
+    <string name="soft_skills">Soft Skills</string>
+    <string name="ss_techs">Server Side Technologies</string>
+    <string name="se_best_practices">Software Engineering Best Practices</string>
+    <!-- Teams -->
+    <string name="sponsoring">Equipe Sponsoring</string>
+    <string name="redaction">Equipe Redaction</string>
+    <string name="communication">Equipe Communication</string>
+
+    <string name="response">Votre réponse a bien été enregistrée!</string>
+    <string name="no_internet">Pas de connexion Internet!</string>
+    <string name="retry">Réessayer</string>
+</resources>

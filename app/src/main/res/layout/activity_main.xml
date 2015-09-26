@@ -1,0 +1,214 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- Toolbar -->
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:id="@+id/inscription_form"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:paddingTop="@dimen/padding_10"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="@dimen/padding_10"
+                    android:paddingTop="@dimen/padding_10"
+                    android:text="@string/app_name"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="@dimen/text_size_28" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_name"
+                        android:drawableLeft="@drawable/name"
+                        android:drawablePadding="@dimen/activity_horizontal_margin"
+                        android:inputType="textPersonName" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_num"
+                        android:drawableLeft="@drawable/phone"
+                        android:drawablePadding="@dimen/activity_horizontal_margin"
+                        android:inputType="phone" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_email"
+                        android:drawableLeft="@drawable/email"
+                        android:drawablePadding="@dimen/activity_horizontal_margin"
+                        android:inputType="textEmailAddress" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_study"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/input_study"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_study"
+                        android:drawableLeft="@drawable/study"
+                        android:drawablePadding="@dimen/activity_horizontal_margin"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_workshops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/workshops_title"
+                    android:textStyle="bold"
+                    android:paddingTop="@dimen/padding_10"
+                    android:textSize="@dimen/text_size_20"
+                    android:paddingBottom="@dimen/padding_10"/>
+
+                <CheckBox
+                    android:id="@+id/cb_mobile_dev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/mobile_dev"/>
+
+                <CheckBox
+                    android:id="@+id/cb_ar_games"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/ar_games"/>
+
+                <CheckBox
+                    android:id="@+id/cb_robotics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/robotics"/>
+
+                <CheckBox
+                    android:id="@+id/cb_soft_skills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/soft_skills"/>
+
+                <CheckBox
+                    android:id="@+id/cb_ss_techs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/ss_techs"/>
+
+                <CheckBox
+                    android:id="@+id/cb_se_best_practices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/se_best_practices"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team"
+                    android:textStyle="bold"
+                    android:paddingTop="@dimen/padding_10"
+                    android:textSize="@dimen/text_size_20"
+                    android:paddingBottom="@dimen/padding_10"/>
+
+                <CheckBox
+                    android:id="@+id/cb_sponsoring"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/sponsoring"/>
+
+                <CheckBox
+                    android:id="@+id/cb_redaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/redaction"/>
+
+                <CheckBox
+                    android:id="@+id/cb_communication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/communication"/>
+
+                <Button
+                    android:id="@+id/btn_inscription"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_10"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/btn_inscription"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
